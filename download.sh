@@ -1,4 +1,8 @@
-mkdir -p $2
+file=$1
+directory=$2
+uncompress=$3
+
+
 file=$(basename $1)
 
 echo "Downloading files"
