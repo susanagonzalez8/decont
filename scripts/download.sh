@@ -16,3 +16,25 @@
 #   CCAGGATTTACAGACTTTAAA
 #
 #   If $4 == "another" only the **first two sequence** should be output
+
+
+
+
+#variables
+url=$1
+directory=$2
+sampleid=$(basename $1)
+
+echo "Downloading samples..."
+
+wget -P $2 $1
+
+echo
+if ["$3" == "yes"]
+then 
+        echo "Uncompressing samples..."
+        gunzip -k $2/sampleid
+        echo "Done"
+fi
+
+
