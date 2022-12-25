@@ -27,13 +27,11 @@ sampleid=$(basename $1)
 
 echo "Downloading samples..."
 
-wget -P $2 $1
+wget -P $2 -c $1
 
-echo
-if ["$3" == "yes"]
-then 
+if [ "$3" = "yes" ]; then 
         echo "Uncompressing samples..."
-        gunzip -k $2/sampleid
+        gunzip -k $2/$sampleid
         echo "Done"
 fi
 
