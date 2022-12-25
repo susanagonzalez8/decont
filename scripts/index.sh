@@ -22,3 +22,5 @@ echo "Running STAR index..."
 	--genomeDir $2 \
 	--genomeFastaFiles $1 \
 	--genomeSAindexNbases 9
+
+echo "Done"
