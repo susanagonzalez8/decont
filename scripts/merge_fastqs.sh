@@ -13,5 +13,7 @@ sampleid=$3
 echo "Merging files..."
 
 
+
+
 cat $1/$3*.fastq.gz > $2/$3.fastq.gz
 
