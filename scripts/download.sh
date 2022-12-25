@@ -17,7 +17,7 @@
 #
 #   If $4 == "another" only the **first two sequence** should be output
 
-
+#sed '/nuclear/,/>/d' prueba.txt > outfile    
 
 
 #variables
@@ -35,4 +35,4 @@ if [ "$3" = "yes" ]; then
         echo "Done"
 fi
 
-
+seqkit grep -vrnp '.*small nuclear.*' ../res/contaminants.fasta > ../res/contaminants_filtered.fasta
