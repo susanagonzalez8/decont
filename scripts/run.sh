@@ -1,8 +1,4 @@
-./download.sh https://bioinformatics.cnio.es/data/courses/decont/contaminants.fasta.gz ../res yes filtro
 
-STAR \
-	--runThreadN 4 \
-	--runMode genomeGenerate \
-	--genomeDir ../res/contaminants_idx \
-	--genomeFastaFiles ../res/contaminants.fasta \
-	--genomeSAindexNbases 9
+./merge_fastqs.sh ../data ../out/merged C57BL_6NJ-12.5dpp
+./merge_fastqs.sh ../data ../out/merged SPRET_EiJ-12.5dpp
+
