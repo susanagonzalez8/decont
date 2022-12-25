@@ -40,3 +40,8 @@ echo "Filtering..."
 if [ "$4" = "filtro" ]; then
         seqkit grep -vrnp '.*small nuclear.*' ../res/contaminants.fasta > ../res/contaminants_filtered.fasta
 fi
+
+filename="../data/urls"
+while read line; do
+wget -P '../data' -c $line
+done < $filename
