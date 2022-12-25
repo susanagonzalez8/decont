@@ -19,7 +19,6 @@
 
 
 
-
 #variables
 url=$1
 directory=$2
@@ -27,14 +26,17 @@ sampleid=$(basename $1)
 
 echo "Downloading samples..."
 
-wget -P $2 $1
+wget -P $2 -c $1
 
-echo
-if ["$3" == "yes"]
-then 
+if [ "$3" = "yes" ]; then 
         echo "Uncompressing samples..."
-        gunzip -k $2/sampleid
+        gunzip -k $2/$sampleid
         echo "Done"
 fi
 
 
+echo "Filtering..."
+
+if [ "$4" = "filtro" ]; then
+        seqkit grep -vrnp '.*small nuclear.*' ../res/contaminants.fasta > ../res/contaminants_filtered.fasta
+fi
