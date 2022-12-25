@@ -26,7 +26,7 @@ echo "Done"
 
 echo "Merging samples..."
 
-for sid in $(ls data/*.fastq.gz | cut -d "-" -f1 | sed "s:data/::" | sort | uniq) 
+for sid in $(ls data/*.fastq.gz | cut -d "-" -f1 | cut -d "/" -f2 | uniq) 
 do
     bash scripts/merge_fastqs.sh data out/merged $sid
 done
@@ -40,7 +40,7 @@ echo "Running cutadapt..."
 mkdir -p out/trimmed
 mkdir -p log/cutadapt
 
-for sid in $(ls out/merged/*.fastq.gz | cut -d "." -f1 | sed "s:out/merged/::")
+for sid in $(ls out/merged/*.fastq.gz | cut -d "." -f1 | cut -d "/" -f3)
 do
         cutadapt \
         -m 18 \
