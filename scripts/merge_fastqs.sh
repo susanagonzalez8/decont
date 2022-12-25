@@ -4,7 +4,7 @@
 #
 # The directory containing the samples is indicated by the first argument ($1).
 
-mkdir -p out/merged
+mkdir -p ../out/merged
 
 input_directory=$1
 output_directory=$2
@@ -13,7 +13,6 @@ sampleid=$3
 echo "Merging files..."
 
 
-
-
 cat $1/$3*.fastq.gz > $2/$3.fastq.gz
 
+echo "Done"
